@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <title>Dynamic Calendar</title>
+
+        <script>
+            // stop vscode from complaining about undefined variables
+            // @ts-ignore
+            tailwind.config = {
+              theme: {
+                extend: {
+                  colors: {
+                    // @ts-ignore
+                    gray: tailwind.colors.neutral,
+                  }
+                }
+              }
+            }
+        </script>
+    </head>
+    <body class="bg-gray-900 text-white">
+        <main class="flex flex-col py-4">
+            <h1 class="text-2xl font-bold mx-auto">Dynamic Calendar</h1>
+            <div class="flex flex-col items-center justify-center mt-2">
+                <div class="flex">
+                    <a href="https://github.com/noaione/kido-mini2/tree/master/01_dyncal" class="font-semibold text-cyan-400 hover:underline" target="_blank" rel="noopener noreferer">Source Code</a>
+                </div>
+            </div>
+            <div class="flex flex-col w-full md:w-[50%] lg:w-[30%] mt-10 ml-0 md:ml-1 bg-gray-700">
+                <div class="flex flex-row justify-between items-center py-2">
+                    <h2 class="font-semibold text-xl ml-4"></h2>
+                    <div class="flex flex-row gap-1 pr-2">
+                        <button class="flex flex-col p-2 hover:bg-gray-500 rounded-full items-center justify-center align-middle transition left-cal">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="w-5 h-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"></path>
+                            </svg>
+                        </button>
+                        <button class="flex flex-col p-2 hover:bg-gray-500 rounded-full items-center justify-center align-middle transition right-cal">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="w-5 h-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="flex flex-row justify-between items-center mx-2 md:mx-4 py-2" id="calendar"></div>
+            </div>
+        </main>
+        <script src="main.js"></script>
+    </body>
+</html>
