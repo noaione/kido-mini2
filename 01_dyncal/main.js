@@ -18,6 +18,7 @@
         /*
             {
                 day: 1,
+                month: 0,
                 active: true, // true if selected month
             }
         */
@@ -52,6 +53,7 @@
                 const date = prevMonth.getDate() - (firstDayOfWeek - i)
                 dayMappings[iMap].push({
                     day: date,
+                    month: month - 1,
                     active: false,
                 });
             }
@@ -63,6 +65,7 @@
             const nDOW = nD.getDay();
             dayMappings[nDOW].push({
                 day: i,
+                month: month,
                 active: true,
             });
         }
@@ -72,6 +75,7 @@
             for (let i = 1; i <= (6 - lastDayOfWeek); i++) {
                 dayMappings[lastDayOfWeek + i].push({
                     day: i,
+                    month: month + 1,
                     active: false,
                 });
             }
@@ -137,7 +141,7 @@
                 const cD = currentTime.getDate();
                 const dayEl = document.createElement('div');
                 dayEl.classList.add('flex', 'flex-col', 'items-center', 'justify-center', 'px-3', 'py-2', 'rounded-[50%]', 'w-10', 'h-10', 'transition-color', 'duration-100', 'select-none');
-                const isCurrent = cY === year && cM === month && cD === day.day;
+                const isCurrent = cY === year && cM === day.month && cD === day.day;
                 if (isCurrent) {
                     dayEl.classList.add('bg-purple-600', 'hover:bg-purple-500');
                 } else {
